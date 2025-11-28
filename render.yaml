@@ -12,7 +12,12 @@ services:
         value: "admin"
       - key: N8N_BASIC_AUTH_PASSWORD
         value: "admin123"
+      # Render sets PORT; tell n8n to listen on it.
+      - key: N8N_PORT
+        value: "${PORT}"
       - key: N8N_HOST
         value: "0.0.0.0"
-      - key: N8N_PORT
-        value: "5678"
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
